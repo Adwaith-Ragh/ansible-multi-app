@@ -1,0 +1,25 @@
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519
+credentials*
+secrets*
+vault-password-file
+
+# Ansible-generated files
+*.retry
+*.log
+
+# Local inventory and overrides
+inventory/hosts.local.ini
+inventory/hosts.private.ini
+inventory/hosts.ini
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store

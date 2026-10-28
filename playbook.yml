@@ -1,0 +1,9 @@
+---
+- name: Deploy Nginx and two sample applications
+  hosts: webservers
+  become: true
+
+  roles:
+    - nginx
+    - app_one
+    - app_two

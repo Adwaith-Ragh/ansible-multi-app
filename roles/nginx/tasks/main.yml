@@ -1,0 +1,42 @@
+---
+- name: Install Nginx
+  ansible.builtin.apt:
+    name: "{{ nginx_package }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  become: true
+
+- name: Ensure application root directory exists
+  ansible.builtin.file:
+    path: "{{ nginx_site_root }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: "0755"
+  become: true
+
+- name: Deploy dedicated Nginx site configuration
+  ansible.builtin.template:
+    src: site.conf.j2
+    dest: "/etc/nginx/sites-available/{{ nginx_site_name }}"
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
+  notify: Validate and reload Nginx
+
+- name: Enable dedicated Nginx site
+  ansible.builtin.file:
+    src: "/etc/nginx/sites-available/{{ nginx_site_name }}"
+    dest: "/etc/nginx/sites-enabled/{{ nginx_site_name }}"
+    state: link
+  become: true
+  notify: Validate and reload Nginx
+
+- name: Ensure Nginx is enabled and running
+  ansible.builtin.service:
+    name: "{{ nginx_service }}"
+    state: started
+    enabled: true
+  become: true

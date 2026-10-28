@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_two_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+            background: #f4f7fb;
+            color: #222;
+        }
+        h1 { color: #16805d; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 14px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th { background: #16805d; color: white; }
+    </style>
+</head>
+<body>
+    <h1>{{ app_two_name }}</h1>
+    <p>Welcome! This website was deployed using Ansible.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>EMP001</td><td>Alex Johnson</td><td>Engineering</td></tr>
+            <tr><td>EMP002</td><td>Sam Wilson</td><td>Design</td></tr>
+            <tr><td>EMP003</td><td>Jamie Lee</td><td>DevOps</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

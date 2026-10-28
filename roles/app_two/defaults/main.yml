@@ -1,0 +1,3 @@
+---
+app_two_name: "Employee Directory"
+app_two_root: /var/www/ansible-multi-app/employees

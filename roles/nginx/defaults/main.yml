@@ -1,0 +1,6 @@
+---
+nginx_package: nginx
+nginx_service: nginx
+nginx_site_name: ansible-multi-app
+nginx_site_port: 8085
+nginx_site_root: /var/www/ansible-multi-app

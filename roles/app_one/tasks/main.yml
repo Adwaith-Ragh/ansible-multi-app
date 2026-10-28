@@ -1,0 +1,18 @@
+---
+- name: Create Task Tracker directory
+  ansible.builtin.file:
+    path: "{{ app_one_root }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: "0755"
+  become: true
+
+- name: Deploy Task Tracker website
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: "{{ app_one_root }}/index.html"
+    owner: www-data
+    group: www-data
+    mode: "0644"
+  become: true

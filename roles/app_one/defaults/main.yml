@@ -1,0 +1,3 @@
+---
+app_one_name: "Task Tracker"
+app_one_root: /var/www/ansible-multi-app/tasks
